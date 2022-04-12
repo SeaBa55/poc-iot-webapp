@@ -1,0 +1,15 @@
+{
+  "name": "poc-iot-webapp",
+  "version": "1.0.0",
+  "description": "rgb matrix editor api interface for esp32 pixel matrix display",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SeaBa55",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  }
+}
