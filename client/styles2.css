@@ -229,3 +229,36 @@ h2 {
 span {
     color: goldenrod;
 }
+
+.matrix-size-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 30px;
+}
+
+.matrix-size {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    border: 1px solid #3c345c;
+    border-radius: 3px;
+    font-size: 15px;
+    font-style: italic;
+    /* margin: 8px; */
+    padding: 6px
+}
+
+#matrix-size-height {
+    width: 22px;
+    height: 18px;
+}
+
+#matrix-size-width {
+    width: 22px;
+    height: 18px;
+}
+
+input {
+    text-align: center;
+}

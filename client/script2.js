@@ -116,6 +116,17 @@ var onlyImagesFileError = document.getElementById("only-images-file-error");
 var noFileSelected = document.getElementById("no-file-selected");
 var noImgSelected = document.getElementById("no-img-selected");
 
+var matHeight = document.getElementById("matrix-size-height");
+var matWidth = document.getElementById("matrix-size-width");
+matHeight.addEventListener("change", handleMatrixSize, false);
+matWidth.addEventListener("change", handleMatrixSize, false);
+
+function handleMatrixSize(e) {
+    const name = e.target.id == "matrix-size-width" ? "screenWidth" : "screenHeight";
+    const val = parseInt(e.target.value);
+    settings[name] = val;
+}
+
 // The variable to hold our images. Global so we can easily reuse it when the
 // user updates the settings (change canvas size, scale, invert, etc)
 var images = new Images();
@@ -381,40 +392,14 @@ function place_image(image){
 
 // Handle text convcersions from pixelMatrix
 function handleTextInput(rawData){
-
-    // var image = new Image();
-    // images.setByIndex(0, {"img": image, "canvas" : canvas});
-
     var input = rawData;
-
-    // // Remove Arduino code
-    // input = input.replace(/const\s+(unsigned\s+char|uint8_t)\s+[a-zA-Z0-9]+\s*\[\]\s*(PROGMEM\s*)?=\s*/g, "");
-    // input = input.replace(/\};|\{/g, "");
 
     // Convert newlines to comma (helps to remove comments later)
     input = input.replace(/\r\n|\r|\n/g, ",");
-    // input = input.replace(/\r\\n|\r|\\n/g, ",");
 
     // Convert multiple commas in a row into a single one
-    // input = input.replace(/,{2,}/g, ",");
     input = input.replace(/[, ]{2,}/g, ",");
 
-    // // Remove whitespace
-    // input = input.replace(/\s/g, "");
-
-    // //Remove comments
-    // input = input.replace(/\/\/(.+?),/g, "");
-
-    // Remove "0x"
-    // input = input.replace(/0[xX]/g, "");
-
-
-
-    // Split into list
-    // var list = input.split(",");
-    // console.log(list);
-
-    // return list;
     return input;
 }
 
